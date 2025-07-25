@@ -7,7 +7,6 @@
 // Version 1.0
 //////////////////////////////////////////////////////////////////
 
-#include <GLFW/glfw3.h>
 #include <stdexcept>
 #define _CRTDBMAP_ALLOC // For debug purposes
 #include <stdlib.h>
@@ -179,6 +178,7 @@ GLFWwindow* initGL(int argc, char* argv[])
 	//glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_CONTINUE_EXECUTION);
 
 	glfwMakeContextCurrent(window);
+	gladLoadGL();
     GLint framebuffer_id;
     glGetIntegerv(GL_FRAMEBUFFER_BINDING, &framebuffer_id);
 	glBindFramebuffer(GL_FRAMEBUFFER, framebuffer_id);
@@ -417,7 +417,7 @@ void calculateFPS()
 {
 	static bool firstTime = true;
 	float fps;
-	int currentTime;
+	int currentTime = 0;
 
 	//  Increase frame count
 	frameCount++;

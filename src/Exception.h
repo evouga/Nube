@@ -24,6 +24,6 @@ namespace nimbus
 	public:
 		NimbusException(const char* errMsg, const char* file, const char* function, int line);
 		void printError() const throw();
-		~NimbusException() _NOEXCEPT {}
+		~NimbusException() {}
 	};
 }

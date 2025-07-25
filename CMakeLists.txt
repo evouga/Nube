@@ -1,4 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
+
+set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
+
 project(Nube)
 add_executable(
     Nube
@@ -27,19 +30,11 @@ target_include_directories(
     /opt/homebrew/include
 )
 set_property(TARGET Nube PROPERTY CXX_STANDARD 17)
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(
-    GLFW
-    REQUIRED
-    IMPORTED_TARGET
-    glfw3
-)
-pkg_check_modules(
-    GLM
-    REQUIRED
-    IMPORTED_TARGET
-    glm
-)
+
+find_package(glad CONFIG REQUIRED)
+find_package(glm CONFIG REQUIRED)
 find_package(OpenGL REQUIRED)
-target_link_libraries(Nube PRIVATE OpenGL::GL PkgConfig::GLFW PkgConfig::GLM)
-target_compile_options(Nube PRIVATE -Wno-deprecated-declarationsdeprecated-declarations)
+find_package(glfw3 CONFIG REQUIRED)
+target_include_directories(Nube PRIVATE ${OPENGL_INCLUDE_DIR})
+target_link_libraries(Nube PRIVATE OpenGL::GL glfw glm::glm glad::glad)
+target_compile_options(Nube PRIVATE)

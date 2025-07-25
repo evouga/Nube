@@ -1,7 +1,7 @@
 // File: Canvas.cpp
 // Purpose: Implement vertex shader cloud container visualization
 
-
+#include <glad/glad.h>
 #include "Canvas.h"
 
 using namespace nimbus;

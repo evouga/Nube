@@ -9,8 +9,8 @@
 #include <vector>
 #include <assert.h>
 
-#  include <OpenGL/gl3.h>
-#  include <OpenGL/gl3ext.h>
+#include <glad/glad.h>
+#  include <GLFW/glfw3.h>
 
 #include "Exception.h"
 

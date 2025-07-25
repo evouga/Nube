@@ -6,8 +6,7 @@
 
 
 
-#  include <OpenGL/gl3.h>
-#  include <OpenGL/gl3ext.h>
+#  include <GLFW/glfw3.h>
 
 
 #define GLM_FORCE_RADIANS

@@ -1,8 +1,9 @@
 // File: Axis.cpp
 // Purpose: Implements 3D-Axis rotation
 
-
+#include <glad/glad.h>
 #include "Axis.h"
+#include <GLFW/glfw3.h>
 
 using namespace nimbus;
 
